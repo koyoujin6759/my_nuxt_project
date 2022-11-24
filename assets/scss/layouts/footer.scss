@@ -1,0 +1,63 @@
+footer {
+    background:#eee;
+    text-align:center;
+    padding:30px 0;
+
+    .footer__inner {
+        position:relative;
+        width:$inner-max-width;
+        margin:0 auto;
+
+        .footer__inner__main {
+            padding-bottom:20px;
+
+            .footer__logo__wrap {
+                float:left;
+            }
+        }
+
+        .footer__inner__bottom {
+            border-top:1px solid #ccc;
+            padding:20px 0 0;
+
+            .footer__privacy__info {
+                text-align:left;
+
+                ul {
+                    font-size:0;
+                    
+                    li {
+                        display: inline-block;
+                        padding-right:20px;
+
+                        a {
+                            font-size:13px;
+                            color:$color-base;
+                        }
+                    }
+                }
+            }
+
+            .footer__company__info {
+                text-align:left;
+                padding-top:20px;
+
+                ul {
+                    font-size: 0;
+
+                    li {
+                        display:inline-block;
+                        vertical-align: top;
+
+                        h3,
+                        p {
+                            display: inline-block;
+                            font-size: 12px;
+                            font-weight:normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

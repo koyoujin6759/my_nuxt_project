@@ -1,0 +1,41 @@
+main {
+    min-height: 800px;
+}
+
+.main__visual__area {
+    position:relative;
+    min-height: 300px;    
+
+    .swiper-wrapper {
+
+        .swiper-slide {
+
+            .main__visual__img {
+                width:100%;
+            }
+
+            .main__visual__inner {
+                position:absolute;
+                display:table;
+                left:50%;
+                transform:translateX(-50%);
+                top:0;
+                width:$inner-max-width;
+                height:100%;
+                z-index:1;
+                
+                .visual__inner__wrap {
+                    display:table-cell;
+                    vertical-align:middle;
+
+                    h2 {
+                        font-size:40px;
+                        color:#fff;
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
