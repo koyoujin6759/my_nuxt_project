@@ -63,5 +63,5 @@ export default {
 }
 </script>
 <style lang="scss">
-    @import "@/assets/scss/layouts/headerNav.scss";
+    @import "@/assets/scss/components/headerNav.scss";
 </style>

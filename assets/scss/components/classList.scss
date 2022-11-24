@@ -1,0 +1,21 @@
+.class__list__type {
+
+    &.list__thumb__type {
+        border:1px solid #ddd;
+        border-radius:5px;
+
+        .list__thumb__wrap {
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+
+            img {
+                width:100%;
+            }
+        }
+
+        .list__cont__wrap {
+            padding:20px;
+            
+        }
+    }
+}
