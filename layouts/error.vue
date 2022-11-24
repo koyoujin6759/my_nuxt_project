@@ -1,14 +1,9 @@
-
 <template lang="">
-    <div>
-        
-    </div>
+  <div class="error-page"></div>
 </template>
 <script>
 export default {
-    layout: "error",
-}
+  layout: "error",
+};
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>
