@@ -23,7 +23,6 @@
     </div>
 </template>
 <script>
-// import {getDataApi} from '@/mixin/api'
 export default {
     data() {
         return {     

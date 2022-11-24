@@ -1,13 +1,20 @@
-import axios from 'axios';
+import axios from "axios";
 
 const config = {
-    baseUrl: "https://www.modoodaechi.com/"
-}
+  baseUrl:
+    "http://testsomeko-env.eba-wmbt9224.ap-northeast-2.elasticbeanstalk.com/",
+};
 
-function getDataApi() {
-    return axios.get(`${config.baseUrl}auth/user_info/self_read/`)
-}
+export default {
+  methods: {
+    async GetUserData() {
+      let res = await axios.get(`${config.baseUrl}board/user_board/`);
 
-export {
-    getDataApi
-}
+      if (res === null) {
+        console.log("result is nulll");
+        return;
+      }
+      return res;
+    },
+  },
+};
