@@ -1,41 +1,80 @@
-main {
-    min-height: 800px;
-}
+.main-page {
 
-.main__visual__area {
-    position:relative;
-    min-height: 300px;    
-
-    .swiper-wrapper {
-
-        .swiper-slide {
-
-            .main__visual__img {
-                width:100%;
+    .main__visual__area {
+        position:relative;
+        min-height: 300px;    
+    
+        .swiper-wrapper {
+    
+            .swiper-slide {
+    
+                .main__visual__img {
+                    width:100%;
+                }
+    
+                .main__visual__inner {
+                    position:absolute;
+                    display:table;
+                    left:50%;
+                    transform:translateX(-50%);
+                    top:0;
+                    width:$inner-max-width;
+                    height:100%;
+                    z-index:1;
+                    
+                    .visual__inner__wrap {
+                        display:table-cell;
+                        vertical-align:middle;
+    
+                        h2 {
+                            font-size:40px;
+                            color:#fff;
+                        }
+                    }
+                }
             }
+        }   
+    }
 
-            .main__visual__inner {
-                position:absolute;
-                display:table;
-                left:50%;
-                transform:translateX(-50%);
-                top:0;
-                width:$inner-max-width;
-                height:100%;
-                z-index:1;
-                
-                .visual__inner__wrap {
-                    display:table-cell;
-                    vertical-align:middle;
+    .section__area {
+        width:100%;
+        padding:70px 0;
 
-                    h2 {
-                        font-size:40px;
-                        color:#fff;
+        &.section__class__area {
+            background:#eee;
+        }
+
+        &.section__class2__area {
+            background:pink;
+        }
+
+        .section__inner__area {
+            width:$inner-max-width;
+            margin:0 auto;
+
+            .class__list__wrap {
+                display: flex;
+                gap: 10px;
+
+                .list-item {
+                    float:left;
+                }
+
+                &.list__layout__3 {
+
+                    .list-item {
+                        width:33.333%;
+                    }
+                }
+
+                &.list__layout__5 {
+                    
+                   .list-item {
+                        width:50%;
+                        padding:0 10px;
                     }
                 }
             }
         }
     }
-
-    
 }
