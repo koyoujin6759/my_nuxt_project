@@ -34,7 +34,12 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/svg-sprite", "@nuxtjs/axios", "cookie-universal-nuxt"],
+  modules: [
+    "@nuxtjs/svg-sprite",
+    "@nuxtjs/axios",
+    "cookie-universal-nuxt",
+    "@nuxtjs/dotenv",
+  ],
   svgSprite: {
     // manipulate module options
   },
