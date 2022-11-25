@@ -106,7 +106,6 @@ export default {
   mounted() {
     this.GetUserData()
       .then((response) => {
-        // console.log(response.data);
         const userDataItem = response.data;
         if (userDataItem) {
           let dataView = document.querySelector(".test");
@@ -119,6 +118,7 @@ export default {
         }
       })
       .catch((error) => console.log(error));
+    console.log(process.env.TEST_VARIABLE);
   },
 };
 </script>
