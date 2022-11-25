@@ -69,12 +69,12 @@ export default {
         },
         async Login(){
             this.$router.push('/main');
-            // let userInfo = await GetDataApi(userData)
-            // if(userInfo){
-            //     this.$router.push('/main');
-            // }else{
+            let userInfo = await GetDataApi(userData)
+            if(userInfo){
+                this.$router.push('/main');
+            }else{
 
-            // }
+            }
         },
     }
 }

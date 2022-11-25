@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <ul class="test"></ul>
   </div>
 </template>
 <script>
@@ -101,6 +102,23 @@ export default {
   created() {
     // this.GetUserData().then(console.log);
     this.GetUserData();
+  },
+  mounted() {
+    this.GetUserData()
+      .then((response) => {
+        // console.log(response.data);
+        const userDataItem = response.data;
+        if (userDataItem) {
+          let dataView = document.querySelector(".test");
+          let dataItem = userDataItem
+            .map((item) => {
+              return `<li><p>${item.title}</p></li>`;
+            })
+            .join("");
+          dataView.innerHTML = dataItem;
+        }
+      })
+      .catch((error) => console.log(error));
   },
 };
 </script>
