@@ -46,7 +46,7 @@
       <div class="section__inner__area">
         <div class="class__list__wrap list__layout__5 clear">
           <ul class="test">
-            <li v-for="item in test">{{ item.title }}</li>
+            <li v-for="(data, idx) in testData" :key="idx">{{ data.title }}</li>
           </ul>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default {
           linkUrl: "https://www.naver.com/",
         },
       ],
-      test: null,
+      testData: "",
     };
   },
   computed: {
@@ -127,7 +127,7 @@ export default {
   created() {
     this.GetBoardData()
       .then((response) => {
-        this.test = response.data;
+        this.testData = response.data;
       })
       .catch((error) => console.log(error));
     console.log(process.env.TEST); // loacal 서버 확인
