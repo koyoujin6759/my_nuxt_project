@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "someko_project",
+    title: "someko_front",
     htmlAttrs: {
       lang: "en",
     },
@@ -32,13 +32,19 @@ export default {
   styleResources: {
     scss: ["@/assets/scss/_variables.scss"],
   },
+  // axios: {
+  //   baseURL: development ? "http://localhost:8000" : "https://domain",
+  // },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxtjs/svg-sprite",
     "@nuxtjs/axios",
     "cookie-universal-nuxt",
-    "@nuxtjs/dotenv",
+    [
+      "@nuxtjs/dotenv",
+      { filename: `.env.${process.env.NODE_ENV}`, systemvars: true },
+    ],
   ],
   svgSprite: {
     // manipulate module options
