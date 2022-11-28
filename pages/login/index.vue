@@ -1,7 +1,7 @@
 <template lang="">
     <div>
-        <div class="pc__login__area mt100 mb100" >
-            <form method="post" action="http://testsomeko-env.eba-wmbt9224.ap-northeast-2.elasticbeanstalk.com/board/user_board/">
+        <div class="pc__login__area mt100 mb100 test" >
+            <form method="post" action="">
                 <div class="login__tit__area text__center mb50">
                     <h2>login</h2>
                 </div>
@@ -24,9 +24,9 @@
 </template>
 <script>
 import value from '@/mixin/value.js';
-
+import api from "@/mixin/api";
 export default {
-    mixins:[value],
+    mixins:[value,api],
     data() {
         return {     
             userEmail: '',
@@ -37,6 +37,10 @@ export default {
     },
     computed: {
         
+    },
+    created() {
+        // this.GetBoardData().then(console.log);
+        this.GetBoardData();
     },
     methods: {
        async OnClickLoginButton() {
@@ -67,14 +71,23 @@ export default {
             }
             
         },
-        async Login(){
-            this.$router.push('/main');
-            let userInfo = await GetDataApi(userData)
-            if(userInfo){
-                this.$router.push('/main');
-            }else{
-
-            }
+        async Logins(){
+            // this.$router.push('/main');
+            // let userInfo = await GetBoardData(boardData)
+            // if(userInfo){
+            //     this.$router.push('/main');                
+            // // }
+            // const userInfo = this.loginApiCall()
+            // this.$store.commit('user/serUser',userInfo)
+            let vm = this;
+            await this.GetBoardData()
+            .then(function(response) {
+                let userInfo = response.data;
+                if(userInfo) {
+                    vm.$router.push('/main');
+                    // console.log(userInfo)
+                }
+            })
         },
     }
 }
@@ -106,7 +119,7 @@ export default {
         }
 
         .login__result__msg {
-            margin-bottom:10px;
+            margin:10px 0;
 
             p {
                 font-size:12px;
