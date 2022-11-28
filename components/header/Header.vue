@@ -4,15 +4,12 @@
       <div class="header__inner">
         <div class="clear">
           <h1 class="header__logo__wrap">
-            <router-link to="./" class="header__logo__link">logo</router-link>
+            <router-link to="/" class="header__logo__link">logo</router-link>
           </h1>
           <!-- 로그아웃 상태 -->
-          <div class="header__user__wrap">
+          <div class="header__user__wrap" v-if="isLogin">
             <ul>
-              <li
-                v-for="(userLogOutMenu, idx) in userLogOutMenu"
-                v-bind:key="idx"
-              >
+              <li v-for="(userLogOutMenu, idx) in userLogOutMenu" :key="idx">
                 <router-link :to="userLogOutMenu.url" class="header__link">{{
                   userLogOutMenu.name
                 }}</router-link>
@@ -20,7 +17,7 @@
             </ul>
           </div>
           <!-- 로그인 상태 -->
-          <div class="header__user__wrap">
+          <div class="header__user__wrap" v-else>
             <ul>
               <li>
                 <router-link :to="userLogInMenu[0].url">{{
@@ -47,7 +44,9 @@
 </template>
 <script>
 import HeaderNav from "@/components/header/HeaderNav.vue";
+import api from "@/mixin/api";
 export default {
+  mixins: [api],
   components: {
     HeaderNav,
   },
@@ -77,9 +76,19 @@ export default {
           name: "내강의실",
         },
       ],
+      isLogin: false,
     };
   },
   computed: {},
+  methods: {},
+  created() {
+    this.GetBoardData();
+  },
+  mounted() {
+    this.GetBoardData().then((response) => {
+      this.isLogin = true;
+    });
+  },
 };
 </script>
 <style lang="scss">

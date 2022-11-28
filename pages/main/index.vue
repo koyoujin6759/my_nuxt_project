@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="section__area section__class__area">
-      <div class="section__inner__area">
+      <div class="section__inner__area" ref="gggggg">
         <div class="class__list__wrap list__layout__3 clear">
           <ClassList
             v-for="(list, idx) in classLists"
@@ -42,14 +42,30 @@
         </div>
       </div>
     </div>
-    <ul class="test"></ul>
+    <div class="section__area section__class3__area">
+      <div class="section__inner__area">
+        <div class="class__list__wrap list__layout__5 clear">
+          <ul class="test">
+            <li v-for="item in test">{{ item.title }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="section__area section__class__area">
+      <div class="section__inner__area">
+        <div class="class__list__wrap list__layout__5 clear">
+          <p>{{ getCount }}</p>
+          <p>{{ getUser }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import value from "@/mixin/value.js";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import ClassList from "/components/ClassList/ClassList";
 import "swiper/css/swiper.css";
+import ClassList from "/components/ClassList/ClassList";
 import api from "@/mixin/api";
 export default {
   mixins: [value, api],
@@ -96,30 +112,29 @@ export default {
           linkUrl: "https://www.naver.com/",
         },
       ],
+      test: null,
     };
+  },
+  computed: {
+    getCount() {
+      return this.$store.getters["getCounter"];
+    },
+    getUser() {
+      return this.$store.getters["user/getUser"];
+    },
   },
   methods: {},
   created() {
-    // this.GetUserData().then(console.log);
-    this.GetUserData();
-  },
-  mounted() {
-    this.GetUserData()
+    this.GetBoardData()
       .then((response) => {
-        const userDataItem = response.data;
-        if (userDataItem) {
-          let dataView = document.querySelector(".test");
-          let dataItem = userDataItem
-            .map((item) => {
-              return `<li><p>${item.title}</p></li>`;
-            })
-            .join("");
-          dataView.innerHTML = dataItem;
-        }
+        this.test = response.data;
       })
       .catch((error) => console.log(error));
-    console.log(process.env.TEST_VARIABLE);
+    console.log(process.env.TEST); // loacal 서버 확인
+
+    // this.$refs.ggggg
   },
+  mounted() {},
 };
 </script>
 <style lang="scss">
