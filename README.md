@@ -1,4 +1,4 @@
-# someko_project
+# my nuxt project
 
 ## Build Setup
 
