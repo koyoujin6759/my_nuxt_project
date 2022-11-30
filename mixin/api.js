@@ -15,5 +15,18 @@ export default {
       }
       return boardData;
     },
+
+    async GetUserData() {
+      let userData = await axios.get('https://jsonplaceholder.typicode.com/users');
+      if (userData === null) {
+        console.log("result is null");
+        return;
+      }
+      return userData;
+    },
+
+    async PostData(saveData) {
+      return await axios.post('https://jsonplaceholder.typicode.com/posts',saveData);
+    },
   },
 };

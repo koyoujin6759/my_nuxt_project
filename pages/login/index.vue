@@ -71,22 +71,29 @@ export default {
             }
             
         },
-        async Logins(){
+        async Login(){
             // this.$router.push('/main');
             // let userInfo = await GetBoardData(boardData)
             // if(userInfo){
-            //     this.$router.push('/main');                
+            //     this.$router.push('/main');
             // // }
             // const userInfo = this.loginApiCall()
-            // this.$store.commit('user/serUser',userInfo)
-            let vm = this;
-            await this.GetBoardData()
-            .then(function(response) {
-                let userInfo = response.data;
-                if(userInfo) {
-                    vm.$router.push('/main');
-                    // console.log(userInfo)
-                }
+            // this.$store.commit('user/setUser',userInfo)
+            let saveData = {};
+            saveData.title = this.userEmail;
+            saveData.body = this.userPassword;
+            // let vm = this;
+            // await this.GetUserData()
+            // .then(function(response) {
+            //     let userInfo = response.data;
+            //     if(userInfo) {
+            //         vm.$router.push('/main');
+            //         // console.log(userInfo)
+            //     }
+            // })
+           await this.PostData(saveData) 
+            .then(response => {
+                console.log(response.data)
             })
         },
     }
