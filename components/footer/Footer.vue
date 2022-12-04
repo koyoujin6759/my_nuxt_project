@@ -30,25 +30,25 @@
                         <ul>
                             <li>
                                 <h3>사업자등록번호 :</h3>  
-                                <p>114-86-92856</p>
+                                <p>2022-11-11-xxxx</p>
                             </li>
                             <li>
                                 <h3>통신판매번호 :</h3>  
-                                <p>2014-서울서초-0345</p>
+                                <p>2022-11-11-xxxx</p>
                             </li>
                             <li>
                                 <h3>대표이사 :</h3>  
-                                <p>양승윤</p>
+                                <p>koyoujin</p>
                             </li>
                             <li>
                                 <h3>개인정보관리책임자 :</h3>  
-                                <p>김수현</p>
+                                <p>고유진</p>
                             </li>
                             <li>
-                                <h3>서울특별시 강남구 테헤란로 146 현익빌딩 11층</h3> 
+                                <h3>부천시 원미구 중동</h3> 
                             </li>
                             <li>
-                                <h3>Copyright © BRAVECOMPANY Co. All rights reserved.</h3> 
+                                <h3>Copyright © YOUJIN Co. All rights reserved.</h3> 
                             </li>
                         </ul>
                     </div>
