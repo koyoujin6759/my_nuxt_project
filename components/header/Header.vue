@@ -29,11 +29,6 @@
                   userLogInMenu[1].name
                 }}</router-link>
               </li>
-              <li>
-                <router-link :to="userLogInMenu[2].url">{{
-                  userLogInMenu[2].name
-                }}</router-link>
-              </li>
             </ul>
           </div>
         </div>
@@ -70,10 +65,6 @@ export default {
         {
           url: "/mypage",
           name: "mypage",
-        },
-        {
-          url: "/myClass",
-          name: "내강의실",
         },
       ],
       isLogin: false,
