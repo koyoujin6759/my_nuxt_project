@@ -1,6 +1,7 @@
 export const state = () => ({
-  name: "test",
-  email: "test@naver.com",
+  name: "",
+  email: "",
+  _id: "",
 });
 
 export const getters = {
@@ -13,5 +14,6 @@ export const mutations = {
   setUser(state, payload) {
     state.name = payload.name;
     state.email = payload.email;
+    state._id = payload._id;
   },
 };

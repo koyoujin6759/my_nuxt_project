@@ -73,12 +73,8 @@ export default {
   computed: {},
   methods: {},
   created() {
-    this.GetBoardData();
   },
   mounted() {
-    this.GetBoardData().then((response) => {
-      this.isLogin = true;
-    });
   },
 };
 </script>

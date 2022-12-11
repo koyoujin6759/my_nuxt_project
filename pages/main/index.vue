@@ -66,7 +66,8 @@ import value from "@/mixin/value.js";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import ClassList from "/components/ClassList/ClassList";
-import api from "@/mixin/api";
+import api from "@/mixin/api"; //export default 자체
+
 export default {
   mixins: [value, api],
   components: {
@@ -124,18 +125,9 @@ export default {
     },
   },
   methods: {},
+  
   created() {
-    this.GetBoardData()
-      .then((response) => {
-        this.testData = response.data;
-        // console.log(response.data)
-      })
-      .catch((error) => console.log(error));
-    console.log(process.env.TEST); // loacal 서버 확인
-
-    // this.$refs.ggggg
   },
-  mounted() {},
 };
 </script>
 <style lang="scss">

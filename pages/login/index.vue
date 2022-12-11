@@ -24,7 +24,7 @@
 </template>
 <script>
 import value from '@/mixin/value.js';
-import api from "@/mixin/api";
+import api, {login} from "@/mixin/api";
 export default {
     mixins:[value,api],
     data() {
@@ -39,8 +39,6 @@ export default {
         
     },
     created() {
-        // this.GetBoardData().then(console.log);
-        this.GetBoardData();
     },
     methods: {
        async OnClickLoginButton() {
@@ -73,28 +71,23 @@ export default {
         },
         async Login(){
             // this.$router.push('/main');
-            // let userInfo = await GetBoardData(boardData)
-            // if(userInfo){
-            //     this.$router.push('/main');
-            // // }
-            // const userInfo = this.loginApiCall()
-            // this.$store.commit('user/setUser',userInfo)
-            let saveData = {};
-            saveData.title = this.userEmail;
-            saveData.body = this.userPassword;
-            // let vm = this;
-            // await this.GetUserData()
-            // .then(function(response) {
-            //     let userInfo = response.data;
-            //     if(userInfo) {
-            //         vm.$router.push('/main');
-            //         // console.log(userInfo)
-            //     }
-            // })
-           await this.PostData(saveData) 
-            .then(response => {
-                console.log(response.data)
-            })
+            const saveData = {};
+            saveData.email = this.userEmail;
+            saveData.password = this.userPassword;
+
+            const res = await login(saveData)
+            console.log("res:", res);
+
+            if (!res?.data?.token) {
+                alert("로그인에 실패했습니다.");
+                return;
+            }
+
+            window.localStorage.setItem("accessToken", res?.data?.token);
+            this.$store.commit("auth/setUser", res.data)
+            const userCheck = this.$store.state.auth
+            console.log('userCheck: ', userCheck);
+
         },
     }
 }
