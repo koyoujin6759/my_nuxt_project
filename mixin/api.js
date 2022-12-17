@@ -8,14 +8,6 @@ const config = {
 
 export default {
   methods: {
-    // async GetBoardData() {
-    //   let boardData = await axios.get(`${config.baseApiUrl}board/user_board/`);
-    //   if (boardData === null) {
-    //     console.log("result is null");
-    //     return;
-    //   }
-    //   return boardData;
-    // },
 
     // async GetUserData() {
     //   let userData = await axios.get('https://jsonplaceholder.typicode.com/users');
@@ -43,3 +35,17 @@ export const login = async (params) => {
   console.log('`${config.baseApiUrl}auth/login`: ', `${config.baseApiUrl}auth/login`);
   return await axios.post(`${config.baseApiUrl}auth/login`, params)
 }
+
+function fetchProductById(id) {
+  return axios.get(`${config.baseApiUrl}products/${id}`)
+}
+
+function fetchProductsByKeyword(keyword) {
+  return axios.get(`${config.baseApiUrl}products`, {
+    params: {
+      name_like:keyword
+    },
+  })
+}
+
+export {fetchProductById,fetchProductsByKeyword}

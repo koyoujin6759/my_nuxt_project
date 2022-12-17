@@ -1,6 +1,6 @@
 <template lang="">
   <div>
-    <header>
+    <header class="title">
       <div class="header__inner">
         <div class="clear">
           <h1 class="header__logo__wrap">

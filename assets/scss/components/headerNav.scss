@@ -7,7 +7,7 @@
             position:relative;
             display:inline-block;             
             line-height: 50px;
-            min-width:100px;
+            min-width:150px;
             text-align:center;
             height:50px;
 
@@ -19,6 +19,7 @@
                 display: block;
                 color:$color-base;
                 padding:0 20px;
+                font-size:18px;
             }
 
             .header__nav__depth2 {
