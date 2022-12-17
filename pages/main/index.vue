@@ -45,9 +45,7 @@
     <div class="section__area section__class3__area">
       <div class="section__inner__area">
         <div class="class__list__wrap list__layout__5 clear">
-          <ul class="">
-            <li v-for="(data, idx) in testData" :key="idx">{{ data.title }}</li>
-          </ul>
+          
         </div>
       </div>
     </div>
@@ -68,13 +66,13 @@ import "swiper/css/swiper.css";
 import ClassList from "/components/ClassList/ClassList";
 import api from "@/mixin/api"; //export default 자체
 
-export default {
+export default {  
   mixins: [value, api],
   components: {
     Swiper,
     SwiperSlide,
     ClassList,
-  },
+  },  
   data() {
     return {
       mainBnr: {
@@ -127,9 +125,10 @@ export default {
   methods: {},
   
   created() {
+    
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/scss/pages/main.scss";
 </style>
