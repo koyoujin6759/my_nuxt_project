@@ -49,14 +49,6 @@
         </div>
       </div>
     </div>
-    <div class="section__area section__class__area">
-      <div class="section__inner__area">
-        <div class="class__list__wrap list__layout__5 clear">
-          <p>{{ getCount }}</p>
-          <p>{{ getUser }}</p>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 <script>
@@ -115,12 +107,7 @@ export default {
     };
   },
   computed: {
-    getCount() {
-      return this.$store.getters["getCounter"];
-    },
-    getUser() {
-      return this.$store.getters["user/getUser"];
-    },
+    
   },
   methods: {},
   
