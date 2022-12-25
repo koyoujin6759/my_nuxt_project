@@ -48,4 +48,13 @@ function fetchProductsByKeyword(keyword) {
   })
 }
 
-export {fetchProductById,fetchProductsByKeyword}
+//carts
+function fetchCartItems() {
+  return axios.get(`${config.baseApiUrl}carts`)
+}
+
+function createCartItem(cartItem) {
+  return axios.post(`${config.baseApiUrl}carts`,cartItem)
+}
+
+export {fetchProductById,fetchProductsByKeyword,fetchCartItems,createCartItem}

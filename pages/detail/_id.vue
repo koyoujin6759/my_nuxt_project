@@ -11,14 +11,14 @@
       <div class="side-panel">
         <p class="name">{{ product.name }}</p>
         <p class="price">{{ product.price }}</p>
-        <button type="button" @click="addToCart">Add to Cart</button>
+        <button type="button" @click="addToCart">카트에 담기</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {fetchProductById} from "@/mixin/api";
+import {fetchProductById,createCartItem} from "@/mixin/api";
 export default {
     // created() {
     //     const id = console.log(this.$route.params.id)        
@@ -30,8 +30,10 @@ export default {
         return {product}
     },
     methods: {
-      addToCart() {
-        this.$store.commit('product/addCartItem',this.product) //mutation 호출
+      async addToCart() {
+        const response = await createCartItem(this.product)
+        console.log(response);
+        this.$store.commit('addCartItem',this.product) //mutation 호출
         this.$router.push('/cart')
       }
     }
