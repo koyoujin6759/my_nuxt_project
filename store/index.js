@@ -28,9 +28,19 @@ export const state = () => ({
   
   export const actions = {
     async [FETCH_CART_ITEMS] ({commit}) {
-      const {data} = await fetchCartItems();
-      commit('setCartItems',data)
+        const {data} = await fetchCartItems();
+        commit(
+            'setCartItems',
+            data.map((item) => ({
+                ...item,
+                imageUrl:`${item.imageUrl}?random=${Math.random()}`,
+            }))
+        ) 
     //   console.log(response);
-    }
+    },
+    // async nuxtServerInit(storeContext, nuxtContext) {
+    //     await storeContext.dispatch(FETCH_CART_ITEMS)
+        
+    // }
   };
   
